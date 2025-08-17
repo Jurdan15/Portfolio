@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="bot.FeedbackPage"
+    Title="Feedback"
+    BackgroundColor="{StaticResource PageBackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15"
+                             WidthRequest="500"
+                             HorizontalOptions="Center">
+
+            <Label Text="To ensure as best as we can, we'd love to hear your feedback on how we served you today!"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource TextColor}"
+                   HorizontalTextAlignment="Center" />
+
+            <HorizontalStackLayout x:Name="CirclesContainer" HorizontalOptions="Center" Spacing="15">
+                <Frame x:Name="Circle1" 
+                       HeightRequest="40" 
+                       WidthRequest="40" 
+                       CornerRadius="20" 
+                       BackgroundColor="{StaticResource EntryBackgroundColor}"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCircleTapped" CommandParameter="1"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame x:Name="Circle2" 
+                       HeightRequest="40" 
+                       WidthRequest="40" 
+                       CornerRadius="20" 
+                       BackgroundColor="{StaticResource EntryBackgroundColor}"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCircleTapped" CommandParameter="2"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame x:Name="Circle3" 
+                       HeightRequest="40" 
+                       WidthRequest="40" 
+                       CornerRadius="20" 
+                       BackgroundColor="{StaticResource EntryBackgroundColor}"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCircleTapped" CommandParameter="3"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame x:Name="Circle4" 
+                       HeightRequest="40" 
+                       WidthRequest="40" 
+                       CornerRadius="20" 
+                       BackgroundColor="{StaticResource EntryBackgroundColor}"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCircleTapped" CommandParameter="4"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame x:Name="Circle5" 
+                       HeightRequest="40" 
+                       WidthRequest="40" 
+                       CornerRadius="20" 
+                       BackgroundColor="{StaticResource EntryBackgroundColor}"
+                       Padding="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCircleTapped" CommandParameter="5"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <Label Text="Did you get a timely response?" 
+                   TextColor="{StaticResource TextColor}" />
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <RadioButton Content="😊" FontSize="30" GroupName="timely" Value="Yes" CheckedChanged="OnTimelyResponseChanged"/>
+                <RadioButton Content="😞" FontSize="30" GroupName="timely" Value="No" CheckedChanged="OnTimelyResponseChanged"/>
+                <RadioButton Content="😐" FontSize="30" GroupName="timely" Value="Somewhat" CheckedChanged="OnTimelyResponseChanged"/>
+            </HorizontalStackLayout>
+
+            <Label Text="Were your queries fully answered?" 
+                   TextColor="{StaticResource TextColor}" />
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <RadioButton Content="😊" FontSize="30" GroupName="answered" Value="Yes" CheckedChanged="OnFullyAnsweredChanged"/>
+                <RadioButton Content="😞" FontSize="30" GroupName="answered" Value="No" CheckedChanged="OnFullyAnsweredChanged"/>
+                <RadioButton Content="😐" FontSize="30" GroupName="answered" Value="Somewhat" CheckedChanged="OnFullyAnsweredChanged"/>
+            </HorizontalStackLayout>
+
+            <Editor x:Name="CommentsEditor"
+                    Placeholder="Do you have any other comments, questions, or concerns?"
+                    HeightRequest="100"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
+                    TextColor="{StaticResource EntryTextColor}"
+                    Margin="0,10" />
+
+            <Button Text="Submit"
+                    Clicked="OnSubmitFeedback"
+                    BackgroundColor="{StaticResource EntryBackgroundColor}"
+                    TextColor="{StaticResource EntryTextColor}"/>
+
+            <Label x:Name="ChatEndedLabel"
+                   Text="The visitor has left the chat.\nThe chat ended. (11:20 am)"
+                   FontSize="12"
+                   TextColor="{StaticResource SecondaryTextColor}"
+                   HorizontalTextAlignment="Center"
+                   IsVisible="False" />
+
+            <VerticalStackLayout Spacing="10" IsVisible="False" x:Name="EndButtonsContainer">
+                <Button x:Name="RestartChatButton"
+                        Text="Start Chat Again"
+                        BackgroundColor="{StaticResource EntryBackgroundColor}"
+                        TextColor="{StaticResource EntryTextColor}"
+                        Clicked="OnRestartChat"/>
+
+                <Button x:Name="ExitButton"
+                        Text="Exit"
+                        BackgroundColor="{StaticResource EntryBackgroundColor}"
+                        TextColor="{StaticResource EntryTextColor}"
+                        Clicked="OnExitButtonClicked"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

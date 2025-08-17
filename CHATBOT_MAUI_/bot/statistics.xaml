@@ -1,0 +1,68 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             x:Class="bot.statistics"
+             Title="Keyword Statistics">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label Text="Keyword Statistics"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Grid x:Name="StatsTable"
+                  HorizontalOptions="Center"
+                  ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Header Row - Keeping your exact original design -->
+                <Label Text="Keyword"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       HeightRequest="40"
+                       BackgroundColor="#f0f0f0"
+                       Margin="5,0"/>
+
+                <Label Text="Frequency"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       HeightRequest="40"
+                       WidthRequest="180"
+                       BackgroundColor="#f0f0f0"
+                       Margin="5,0"/>
+            </Grid>
+
+            <Button Text="Reload Statistics"
+                    Clicked="OnReloadStatisticsClicked"
+                    BackgroundColor="Aqua"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    CornerRadius="12" />
+
+            <!-- Pie Chart -->
+            <chart:ChartView x:Name="PieChartView"
+                            HeightRequest="300"
+                            HorizontalOptions="Fill"
+                            Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

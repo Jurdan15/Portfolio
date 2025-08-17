@@ -1,0 +1,152 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bot.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Title="CSU-G Inquiry Assistance Chatbot">
+
+    <Grid>
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="20"
+                             Padding="0">
+
+            <!-- Header with Custom Back and Theme Toggle Buttons -->
+            <Grid HorizontalOptions="FillAndExpand" 
+                  VerticalOptions="Start"
+                  HeightRequest="50"
+                  BackgroundColor="{DynamicResource HeaderBackgroundColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Back -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Toggle -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Title -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Close -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Custom Back Button -->
+                <Button Text="←"
+                        Grid.Column="0"
+                        Clicked="OnBackClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontSize="20"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"/>
+
+                <!-- Theme Toggle Button -->
+                <Frame Grid.Column="1"
+                       BackgroundColor="Transparent"
+                       Padding="0"
+                       WidthRequest="60"
+                       HeightRequest="30"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Margin="5,0,0,0">
+                    <Grid>
+                        <!-- Background Track -->
+                        <Frame BackgroundColor="{DynamicResource ThemeToggleTrackColor}"
+                               CornerRadius="15"
+                               HasShadow="False"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"/>
+
+                        <!-- Thumb with icon -->
+                        <Frame x:Name="ThemeToggleThumb"
+                               BackgroundColor="{DynamicResource ThemeToggleThumbColor}"
+                               CornerRadius="15"
+                               WidthRequest="30"
+                               HeightRequest="30"
+                               HorizontalOptions="Start"
+                               HasShadow="True"
+                               Padding="0">
+                            <Label x:Name="ThemeIcon"
+                                   Text="🌙"
+                                   FontSize="16"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Frame>
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnThemeToggleClicked"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Title -->
+                <Label Text="CSU-G Inquiry Assistance Chatbot"
+                       Grid.Column="2"
+                       FontAttributes="Bold"
+                       FontSize="22"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+
+                <!-- Close Button -->
+                <Button Text="✕" 
+                        Grid.Column="3"
+                        Clicked="OnCloseClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontSize="20"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Chat Frame -->
+            <Frame BackgroundColor="{DynamicResource PageBackgroundColor}"
+                   CornerRadius="18"
+                   Padding="0"
+                   WidthRequest="420"
+                   HeightRequest="520"
+                   HasShadow="True"
+                   BorderColor="DimGrey"
+                   Margin="10">
+
+                <Grid RowDefinitions="*,Auto" Padding="0">
+
+                    <ScrollView x:Name="ChatScrollView" Grid.Row="0" Padding="10">
+                        <StackLayout x:Name="ChatStack" Spacing="10">
+                        </StackLayout>
+                    </ScrollView>
+
+                    <Grid Grid.Row="1"
+                          Padding="10"
+                          ColumnDefinitions="*,Auto"
+                          BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+                        <Entry x:Name="MessageEntry"
+                               Grid.Column="0"
+                               Placeholder="Type your message..."
+                               TextColor="{DynamicResource EntryTextColor}"
+                               PlaceholderColor="White"
+                               BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                               Margin="0"
+                               FontSize="13"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               HorizontalOptions="FillAndExpand" />
+
+                        <Button Grid.Column="1"
+                                Text="Send"
+                                Clicked="OnSendClicked"
+                                BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                                TextColor="{DynamicResource EntryTextColor}"
+                                CornerRadius="10"
+                                Margin="10,0,0,0"
+                                WidthRequest="70"
+                                HeightRequest="40"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center" />
+                    </Grid>
+
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
