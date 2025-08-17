@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Use a single Bootstrap CSS file -->
+    <link rel="stylesheet" href="bootstrap (1).css">
+    <link rel="stylesheet" href="bootstrap.min (1).css">
+    <link rel="stylesheet" href="bootstrap.rtl (1).css">
+    <link rel="stylesheet" href="bootstrap.rtl.min (1).css">
+    <!-- Solar -->
+    
+    <style>
+        #Title {
+            font-size: 50px;
+            font-family: "Times New Roman", Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="Title" href="#">BOOK RECORDS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Records</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Book_List.php">All BOOKS</a>
+                            <a class="dropdown-item" href="borrowed_list.php">BORROWED BOOKS</a>
+                            <a class="dropdown-item" href="history_list.php">History</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="changepass.php">Change Password</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="landing.php">Logout</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Optional Hover Script -->
+    <script>
+        // Enable dropdown on hover
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('mouseover', () => {
+            dropdown.querySelector('.dropdown-menu').classList.add('show');
+            dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'true');
+        });
+        dropdown.addEventListener('mouseout', () => {
+            dropdown.querySelector('.dropdown-menu').classList.remove('show');
+            dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+        });
+    </script>
+</body>
+</html>
